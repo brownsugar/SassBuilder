@@ -61,7 +61,7 @@ def grep_files(pattern, path):
     out, err = proc.communicate()
 
     if err:
-        print(err)
+        print(err.decode('utf-8'))
         sublime.error_message('SassBuilder: Hit \'ctrl+`\' to see errors.')
 
     if not out:
@@ -139,7 +139,7 @@ def compile_sass(files, settings):
             compiled_files.append(name)
 
         if err:
-            print(err)
+            print(err.decode('utf-8'))
             sublime.error_message('SassBuilder: Hit \'ctrl+`\' to see errors.')
             return
 
